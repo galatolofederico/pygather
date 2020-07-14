@@ -10,7 +10,8 @@ COPY server.py ./
 COPY templates ./templates
 
 EXPOSE 80
-ENV FLASK_APP server.py
-CMD flask run --port 80 --host 0.0.0.0
+# Keeping for debug
+#ENV FLASK_APP server.py
+#CMD flask run --port 80 --host 0.0.0.0
 
-#CMD gunicorn --bind 0.0.0.0:80 server:app
+CMD gunicorn --bind 0.0.0.0:80 server:app
