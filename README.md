@@ -17,6 +17,9 @@ It supports:
 
 The admin panel is accessible at `http(s)://<your-url>:<your-port>/admin`
 
+
+## Deploy
+
 ### Docker
 
 Build it
@@ -50,4 +53,20 @@ Run it
 
 ```
 gunicorn --bind 0.0.0.0:80 server:app
+```
+
+### Heroku
+
+Make sure you have installed Heroku CLI, logged in and created a new project
+
+Add heroku remote
+
+```
+heroku git:remote -a <project>
+```
+
+Push
+
+```
+git push origin heroku
 ```
