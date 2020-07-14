@@ -1,0 +1,15 @@
+version: "3"
+services:
+  pygather:
+    build: .
+    ports:
+      - "8080:80"
+    environment:
+      - ADMIN_PASSWORD=admin
+      - DEFAULT_REDIRECT_URL=https://google.com
+      - DEFAULT_USE_JS=1
+      - IGNORE_FAVICON=1
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+  redis:
+    image: "redis:alpine"

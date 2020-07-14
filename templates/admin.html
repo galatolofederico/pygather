@@ -22,9 +22,9 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                {% for id, elem in db %}
+                                {% for elem in logs %}
                                 <tr>
-                                    <th scope="row"><a href="/view/{{id}}">{{id}}</a></th>
+                                    <th scope="row"><a href="/view/{{elem.id}}">{{elem.id}}</a></th>
                                     <td>{{elem.date}}</td>
                                     <td>{{elem.ip}}</td>
                                     <td>{{elem.path}}</td>
@@ -32,6 +32,9 @@
                                 {% endfor %}
                             </tbody>
                         </table>
+                        <div class="d-flex justify-content-center">
+                            <a href="/clear/logs" class="btn btn-danger">Clear Logs</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -51,15 +54,18 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                {% for path, redirect in redirects %}
+                                {% for redirect in redirects %}
                                 <tr>
-                                    <th scope="row">{{path}}</th>
+                                    <th scope="row">{{redirect.path}}</th>
                                     <td>{{redirect.url}}</td>
                                     <td>{{redirect.js}}</td>
                                 </tr>
                                 {% endfor %}
                             </tbody>
                         </table>
+                        <div class="d-flex justify-content-center">
+                            <a href="/clear/redirects" class="btn btn-danger">Clear Redirects</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -77,7 +83,9 @@
                                 <input type="checkbox" class="form-check-input" name="js" checked>
                                 <label class="form-check-label">Use JS</label>
                             </div>
-                            <button type="submit" class="btn btn-primary mt-3">Add</button>
+                            <div class="d-flex justify-content-center">
+                                <button type="submit" class="btn btn-primary mt-3">Add</button>
+                            </div>
                         </form>
                     </div>
                 </div>
