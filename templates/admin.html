@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>pygather</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <div class="row justify-content-around">
+            <div class="col-md-8">
+                <div class="card mt-5">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Log</h5>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">ID</th>
+                                    <th scope="col">Date</th>
+                                    <th scope="col">IP</th>
+                                    <th scope="col">Path</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for id, elem in db %}
+                                <tr>
+                                    <th scope="row"><a href="/view/{{id}}">{{id}}</a></th>
+                                    <td>{{elem.date}}</td>
+                                    <td>{{elem.ip}}</td>
+                                    <td>{{elem.path}}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row justify-content-around">
+            <div class="col-md-8">
+                <div class="card mt-5">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Redirects</h5>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Path</th>
+                                    <th scope="col">Redirect</th>
+                                    <th scope="col">JS</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for path, redirect in redirects %}
+                                <tr>
+                                    <th scope="row">{{path}}</th>
+                                    <td>{{redirect.url}}</td>
+                                    <td>{{redirect.js}}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row justify-content-around">
+            <div class="col-md-8">
+                <div class="card mt-5">
+                    <div class="card-body">
+                        <h5 class="card-title">Add Redirect</h5>
+                        <form action="" method="POST">
+                            <input type="text" class="form-control mt-2" name="path" placeholder="path">
+                            <input type="text" class="form-control mt-2" name="url" placeholder="url">
+                            <div class="form-check mt-2">
+                                <input type="checkbox" class="form-check-input" name="js" checked>
+                                <label class="form-check-label">Use JS</label>
+                            </div>
+                            <button type="submit" class="btn btn-primary mt-3">Add</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
