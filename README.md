@@ -22,38 +22,11 @@ The admin panel is accessible at `http(s)://<your-url>:<your-port>/admin`
 
 ### Docker
 
-Build it
-
 ```
-docker build -t pygather .
+docker-compose up
 ```
 
-Run it
-
-```
-docker run -p <your-port>:80 pygather
-```
-
-### Native
-
-Create a virtualenv
-
-```
-virtualenv --python=python3.6 env
-. ./env/bin/activate
-```
-
-Install requirements
-
-```
-pip install -r requirements.txt
-```
-
-Run it
-
-```
-gunicorn --bind 0.0.0.0:80 server:app
-```
+`pygather` will be available at `http://<your-ip>:8080`
 
 ### Heroku
 
